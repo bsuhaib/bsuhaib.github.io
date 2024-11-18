@@ -71,6 +71,22 @@
   margin-bottom: 15px;
 }
 
+
+.projects-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+ul li {
+  margin-bottom: 15px;
+}
+ul li a {
+  margin-right: 10px; /* Adds spacing between buttons */
+}
+
 /* Additional CSS for Skills Section */
 .skills-section h2 {
   margin-bottom: 40px;
@@ -101,6 +117,21 @@
   background-color: #007bff;
   border-color: #007bff;
 }
+
+
+.skills-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 1.1rem; /* Adjust for readability */
+}
+.skills-section ul li {
+  margin-bottom: 10px;
+}
+.skills-section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem; /* Adjust as needed */
+}
+
 
 /* Additional CSS for Contact Section */
 .contact-section {
@@ -209,104 +240,69 @@ I love the challenge that comes with figuring out a complex problem and the sati
 
 
 <!-- Projects Section -->
-<section id="projects" class="projects-section bg-light" id="projects">
+<section id="projects" class="projects-section bg-light">
   <div class="container">
     <h2 class="text-center">Projects</h2>
-    <div class="row">
-      <!-- Project 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/projects/machine_guarding2.png" class="card-img-top" alt="Project 1">
-          <div class="card-body">
-            <h5 class="card-title">Machine Guarding and Live Safety Monitoring System</h5>
-            <p class="card-text">Real Time Guarding of an Industrial Machine and Safety Monitoring around its safe boundary.</p>
-            <a href="#" class="btn btn-primary">Blog Post</a>
-            <a href="#" class="btn btn-secondary">Source Code</a>
-          </div>
-        </div>
-      </div>
-      <!-- Project 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/projects/staircase_result.jpg" class="card-img-top" alt="Project 2">
-          <div class="card-body">
-            <h5 class="card-title">Staircase Obstruction</h5>
-            <p class="card-text">Detection of stationary object on a staircase for a certain timeframe.</p>
-            <a href="#" class="btn btn-primary">Blog Post</a>
-            <a href="#" class="btn btn-secondary">Source Code</a>
-          </div>
-        </div>
-      </div>
-      <!-- Project 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
-          <div class="card-body">
-            <h5 class="card-title">Project 3</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-primary">Blog Post</a>
-            <a href="#" class="btn btn-secondary">Source Code</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ul>
+      <li>
+        <strong>Machine Guarding and Live Safety Monitoring System:</strong>
+        Real-time guarding of an industrial machine and safety monitoring around its safe boundary.
+        
+      </li>
+      <li>
+        <strong>Staircase Obstruction Detection:</strong>
+        Detection of stationary objects on a staircase for a specific timeframe.
+        
+      </li>
+      <li>
+        <strong>PPE Detection :</strong>
+        Detection of PPEs for safety surveillance in CCTV cameras.
+        
+        
+      </li>
 
+      <li>
+        <strong>Pneumothorax Segmentation :</strong>
+        Classification and Segmentation of Pneumothorax.
+        
+        
+      </li>
+
+      <li>
+        <strong>Skin Melanoma Classification :</strong>
+        Classification of Skin Melanoma Stages.
+        
+        
+      </li>
+    </ul>
   </div>
 </section>
 
 
 <!-- Skills Section -->
-<section id="skills" class="skills-section bg-white" id="skills">
+<section id="skills" class="skills-section bg-white">
   <div class="container">
     <h2 class="text-center">Skills</h2>
-    <div class="row">
-      <!-- Skill 1 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/1.png" class="card-img-top" alt="Python">
-          <div class="card-body">
-            <h5 class="card-title">Python</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-      <!-- Skill 2 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/2.png" class="card-img-top" alt="Data Visualization">
-          <div class="card-body">
-            <h5 class="card-title">Data Visualization</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-      <!-- Skill 3 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/3.png" class="card-img-top" alt="SQL">
-          <div class="card-body">
-            <h5 class="card-title">SQL</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-      <!-- Skill 4 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/4.png" class="card-img-top" alt="Data Storytelling">
-          <div class="card-body">
-            <h5 class="card-title">Data Storytelling</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ul>
+      <li>
+        <strong>Programming Languages:</strong> Proficient in Python and C++ for application development and data-driven tasks.
+      </li>
+      <li>
+        <strong>Frameworks and Libraries:</strong> Hands-on experience with PyTorch, TensorFlow, and other deep learning tools.
+      </li>
+      <li>
+        <strong>Edge Computing:</strong> Expertise in deploying AI solutions on NVIDIA Jetson devices for real-time applications.
+      </li>
+      <li>
+        <strong>Data Science:</strong> Skilled in data analysis, modeling, visualization, and drawing actionable insights.
+      </li>
+      <li>
+        <strong>Natural Language Processing (NLP):</strong> Proficient in developing models and applications for text analysis and understanding.
+      </li>
+    </ul>
   </div>
 </section>
+
 
 <!-- Contact Me Section -->
 <section id="contact" class="contact-section text-center text-white bg-dark">
@@ -346,9 +342,9 @@ I love the challenge that comes with figuring out a complex problem and the sati
         </a>
       </div>
       <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://youtube.com/c/yourchannel" target="_blank">
-          <img src="icons/youtube.png" alt="YouTube" class="social-icon">
-          YouTube
+        <a href="https://kaggle.com/bsuhaib" target="_blank">
+          <img src="icons/kaggle.png" alt="YouTube" class="social-icon">
+          Kaggle
         </a>
       </div>
     </div>
