@@ -76,7 +76,23 @@
       background-size: 48px 48px;
     }
     .hero-content {
-      max-width: 860px; margin: 0 auto; position: relative; z-index: 1;
+      max-width: 1040px; margin: 0 auto; position: relative; z-index: 1;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: 2.5rem 3rem;
+    }
+    .hero-text { flex: 1 1 380px; min-width: 0; max-width: 680px; order: 1; }
+    .hero-photo {
+      flex: 0 0 auto; align-self: center; order: 2;
+    }
+    .hero-profile-img {
+      display: block;
+      width: clamp(168px, 26vw, 220px);
+      height: clamp(168px, 26vw, 220px);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid rgba(255,255,255,0.25);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 0 1px rgba(96,165,250,0.35);
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -432,6 +448,13 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero-content { flex-direction: column; text-align: center; }
+      .hero-text { max-width: 100%; order: 2; }
+      .hero-photo { order: 1; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-cta { justify-content: center; }
+    }
     @media (max-width: 640px) {
       nav .nav-links { display: none; }
       .hero-stats { gap: 1.5rem; }
@@ -459,6 +482,7 @@
 <section class="hero" id="hero">
   <div class="hero-grid"></div>
   <div class="hero-content">
+    <div class="hero-text">
     <div class="hero-badge">
       <span class="dot"></span>
       Medical AI · Computer Vision · Dubai, UAE
@@ -493,6 +517,18 @@
       <a href="mailto:sbyousuf93@gmail.com" class="btn btn-primary">Get in Touch</a>
       <a href="#regulatory" class="btn btn-outline">Regulatory</a>
       <a href="#patents" class="btn btn-outline">View Patents</a>
+    </div>
+    </div>
+    <div class="hero-photo">
+      <img
+        class="hero-profile-img"
+        src="images/final_portfolio_image.png"
+        width="440"
+        height="440"
+        alt="Suhaib Bin Yousouf — portrait"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
   </div>
 </section>

@@ -1,0 +1,7 @@
+.DS_Store
+.claude/
+
+# Optional: do not publish private / large files (remove a line if you want it in git)
+*.docx
+*.pdf
+Executive Summary*
