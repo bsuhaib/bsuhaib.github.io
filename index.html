@@ -363,6 +363,11 @@
       border-radius: 12px; padding: 1.25rem 1.5rem;
       display: flex; align-items: flex-start; gap: 1rem;
       transition: all 0.25s;
+      min-width: 0;
+    }
+    .ach-card > div:nth-child(2) {
+      flex: 1;
+      min-width: 0;
     }
     .ach-card:hover {
       border-color: var(--blue-accent);
@@ -374,9 +379,18 @@
     .ach-card h4 {
       font-size: 0.9rem; font-weight: 700; color: var(--dark);
       margin-bottom: 0.25rem;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .ach-card p {
       font-size: 0.8rem; color: var(--muted); line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .ach-card p a {
+      display: inline;
+      overflow-wrap: anywhere;
+      word-break: break-all;
     }
 
     /* ── EDUCATION ───────────────────────────────────── */
@@ -934,7 +948,7 @@
         <div class="ach-icon">🌍</div>
         <div>
           <h4>International Stroke Conference 2026</h4>
-          <p>Poster presentation; abstract <strong>TP252</strong> in the AHA <em>Stroke</em> meeting supplement — <a href="https://www.ahajournals.org/doi/10.1161/str.57.suppl_1.TP252" target="_blank" rel="noopener noreferrer" style="color:var(--blue-mid);">https://www.ahajournals.org/doi/10.1161/str.57.suppl_1.TP252</a>.</p>
+          <p>Poster presentation; abstract <strong>TP252</strong> in the AHA <em>Stroke</em> meeting supplement. <a href="https://www.ahajournals.org/doi/10.1161/str.57.suppl_1.TP252" target="_blank" rel="noopener noreferrer" style="color:var(--blue-mid);">Abstract on AHA Journals (TP252) →</a></p>
         </div>
       </div>
     </div>
