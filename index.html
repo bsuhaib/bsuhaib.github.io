@@ -1,399 +1,952 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Section</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suhaib Bin Yousouf — Lead Data Scientist / Principal Architect | Medical AI &amp; Computer Vision</title>
+  <meta name="description" content="Lead Data Scientist / Principal Architect. Medical imaging AI, foundation models, and production computer vision. Named inventor on four US provisional patent applications (neurovascular AI) and one Indian patent application (Tata Steel). FDA Breakthrough Device track (Q260802). IIT Guwahati M.Tech." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-  .about-section {
-    text-align: center;
-    padding: 50px 0;
-  }
-  .about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  .about-section img {
-    width: 200px; /* Adjust the size as needed */
-    height: 200px;
-    border-radius: 50%; /* Makes the image round */
-    margin-bottom: 20px;
-  }
-  .about-section p {
-    color: #333;
-  }
+    :root {
+      --blue: #1B4F8A;
+      --blue-mid: #2563EB;
+      --blue-light: #EFF6FF;
+      --blue-accent: #3B82F6;
+      --dark: #0F172A;
+      --text: #1E293B;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --white: #FFFFFF;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --gold: #D97706;
+    }
 
+    html { scroll-behavior: smooth; }
 
-  .work-experience-section {
-  padding: 20px;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
 
-.experience h3 {
-  color: #333;
-}
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1.1rem; color: var(--blue);
+      text-decoration: none; letter-spacing: -0.3px;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue-mid); }
 
-.experience .date {
-  font-style: italic;
-  color: #666;
-}
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #0F172A 0%, #1B4F8A 50%, #1E3A6E 100%);
+      position: relative; overflow: hidden;
+      padding: 100px 2rem 4rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(59,130,246,0.15) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-content {
+      max-width: 860px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4);
+      color: #93C5FD; padding: 0.4rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; background: #34D399; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 800; color: #fff;
+      line-height: 1.1; letter-spacing: -1.5px;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 span { color: #60A5FA; }
+    .hero .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #93C5FD; font-weight: 400; margin-bottom: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+    .hero p {
+      font-size: 1.05rem; color: #CBD5E1; max-width: 680px;
+      line-height: 1.75; margin-bottom: 2.5rem;
+    }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+    }
+    .stat {
+      display: flex; flex-direction: column;
+    }
+    .stat-num {
+      font-size: 2rem; font-weight: 800; color: #fff;
+      line-height: 1; letter-spacing: -1px;
+    }
+    .stat-num span { color: #60A5FA; }
+    .stat-label {
+      font-size: 0.78rem; color: #94A3B8; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.75rem 1.75rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary {
+      background: #2563EB; color: #fff; border: none;
+    }
+    .btn-primary:hover { background: #1D4ED8; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,99,235,0.4); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
 
-.experience ul {
-  list-style-type: none;
-  margin-left: 20px;
-}
+    /* ── SECTIONS ────────────────────────────────────── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
 
-  ul {
-  list-style-type: none;
-}
+    .section-label {
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--blue-mid); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--dark);
+      letter-spacing: -0.5px; margin-bottom: 0.5rem;
+    }
+    .section-desc {
+      font-size: 1rem; color: var(--muted);
+      max-width: 640px; line-height: 1.7; margin-bottom: 3rem;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-accent));
+      border-radius: 2px; margin-bottom: 3rem;
+    }
 
-  /* Additional CSS for Projects Section */
-.projects-section h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-}
-.card {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds a subtle shadow around the card */
-}
-.card-img-top {
-  max-height: 180px; /* Adjust this value to fit the image properly in the card */
-  object-fit: cover; /* This makes sure the image covers the area properly */
-}
-.card-body {
-  padding: 15px;
-}
-.card-title {
-  font-size: 1.25rem;
-}
-.card-text {
-  margin-bottom: 15px;
-}
+    /* ── PATENTS ────────────────────────────────────── */
+    #patents { background: var(--dark); }
+    #patents .section-label { color: #60A5FA; }
+    #patents .section-title { color: #fff; }
+    #patents .section-desc { color: #94A3B8; }
+    .patents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .patent-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1.5rem;
+      position: relative; overflow: hidden;
+      transition: all 0.3s;
+    }
+    .patent-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #2563EB, #60A5FA);
+    }
+    .patent-card:hover {
+      border-color: rgba(96,165,250,0.3);
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.07);
+    }
+    .patent-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: #60A5FA; margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .patent-title {
+      font-size: 0.95rem; font-weight: 600; color: #fff;
+      line-height: 1.5;
+    }
+    .patent-org {
+      font-size: 0.8rem; color: #94A3B8; margin-top: 0.75rem;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .patent-org::before {
+      content: '';
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #34D399; flex-shrink: 0;
+    }
 
+    /* ── EXPERIENCE ─────────────────────────────────── */
+    #experience { background: #fff; }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 2px; bottom: 8px;
+      background: linear-gradient(to bottom, var(--blue-mid), var(--border));
+    }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-dot {
+      position: absolute; left: -2.45rem; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--blue-mid);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--blue-mid);
+    }
+    .timeline-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--dark);
+    }
+    .timeline-company {
+      font-size: 0.9rem; color: var(--blue-mid); font-weight: 600;
+    }
+    .timeline-date {
+      font-size: 0.8rem; color: var(--muted);
+      background: var(--bg); padding: 0.2rem 0.65rem;
+      border-radius: 100px; border: 1px solid var(--border);
+      font-weight: 500; white-space: nowrap;
+    }
+    .timeline-desc {
+      font-size: 0.875rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .timeline-bullets { list-style: none; padding: 0; }
+    .timeline-bullets li {
+      font-size: 0.875rem; color: var(--text);
+      padding: 0.3rem 0 0.3rem 1.2rem; position: relative; line-height: 1.6;
+    }
+    .timeline-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--blue-mid); font-size: 0.75rem; top: 0.35rem;
+    }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.25rem 0.6rem; border-radius: 4px;
+      background: var(--blue-light); color: var(--blue-mid);
+      letter-spacing: 0.02em;
+    }
 
-.projects-section h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-}
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-ul li {
-  margin-bottom: 15px;
-}
-ul li a {
-  margin-right: 10px; /* Adds spacing between buttons */
-}
+    /* ── SKILLS ─────────────────────────────────────── */
+    #skills { background: var(--bg); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      transition: all 0.25s;
+    }
+    .skill-card:hover {
+      border-color: var(--blue-accent);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+      transform: translateY(-2px);
+    }
+    .skill-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--blue-light); display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; margin-bottom: 1rem;
+    }
+    .skill-card h3 {
+      font-size: 0.875rem; font-weight: 700; color: var(--dark);
+      margin-bottom: 0.5rem; text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .skill-list {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.8;
+    }
 
-/* Additional CSS for Skills Section */
-.skills-section h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-}
-.skills-section .card {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-.skills-section .card-img-top {
-  padding: 20px; /* Add padding around your images if needed */
-  background-color: #f8f9fa; /* Adjust the background color if your images have transparent areas */
-  height: 180px; /* Fixed height for consistency */
-  object-fit: contain; /* This will make sure the image is scaled properly within the container */
-}
-.skills-section .card-body {
-  padding: 15px;
-}
-.skills-section .card-title {
-  font-size: 1.25rem;
-  margin-bottom: 15px;
-}
-.skills-section .btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
-.skills-section .btn-outline-primary:hover {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
+    /* ── PROJECTS ────────────────────────────────────── */
+    #projects { background: #fff; }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: all 0.3s; background: var(--card);
+    }
+    .project-card:hover {
+      border-color: var(--blue-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37,99,235,0.1);
+    }
+    .project-top {
+      height: 6px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-accent));
+    }
+    .project-body { padding: 1.5rem; }
+    .project-badge {
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--blue-mid); background: var(--blue-light);
+      padding: 0.2rem 0.5rem; border-radius: 4px;
+      display: inline-block; margin-bottom: 0.75rem;
+    }
+    .project-card h3 {
+      font-size: 1rem; font-weight: 700; color: var(--dark);
+      margin-bottom: 0.5rem; line-height: 1.4;
+    }
+    .project-card p {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .project-metric {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--blue-mid); padding: 0.3rem 0;
+      border-top: 1px solid var(--border); margin-top: auto;
+    }
 
+    /* ── ACHIEVEMENTS ────────────────────────────────── */
+    #achievements { background: var(--bg); }
+    .ach-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .ach-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: all 0.25s;
+    }
+    .ach-card:hover {
+      border-color: var(--blue-accent);
+      box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+    }
+    .ach-icon {
+      font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem;
+    }
+    .ach-card h4 {
+      font-size: 0.9rem; font-weight: 700; color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+    .ach-card p {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.5;
+    }
 
-.skills-section ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  font-size: 1.1rem; /* Adjust for readability */
-}
-.skills-section ul li {
-  margin-bottom: 10px;
-}
-.skills-section h2 {
-  margin-bottom: 20px;
-  font-size: 2rem; /* Adjust as needed */
-}
+    /* ── EDUCATION ───────────────────────────────────── */
+    #education { background: #fff; }
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .edu-card {
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem; position: relative; overflow: hidden;
+      transition: all 0.25s; background: var(--card);
+    }
+    .edu-card:hover {
+      border-color: var(--blue-accent);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+    }
+    .edu-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-accent));
+    }
+    .edu-year {
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;
+    }
+    .edu-card h3 {
+      font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem;
+    }
+    .edu-card .institute {
+      font-size: 0.9rem; color: var(--blue-mid); font-weight: 600; margin-bottom: 0.5rem;
+    }
+    .edu-card .cgpa {
+      font-size: 0.82rem; color: var(--muted);
+    }
+    .edu-card .cgpa strong { color: var(--dark); }
 
+    /* ── CONTACT ─────────────────────────────────────── */
+    #contact {
+      background: linear-gradient(135deg, #0F172A 0%, #1B4F8A 100%);
+      text-align: center;
+    }
+    #contact .section-label { color: #60A5FA; }
+    #contact .section-title { color: #fff; }
+    #contact p { color: #94A3B8; max-width: 500px; margin: 0 auto 2.5rem; }
+    .contact-links {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.75rem 1.5rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-link-email {
+      background: #2563EB; color: #fff;
+    }
+    .contact-link-email:hover { background: #1D4ED8; }
+    .contact-link-linkedin {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .contact-link-linkedin:hover { background: rgba(255,255,255,0.15); }
 
-/* Additional CSS for Contact Section */
-.contact-section {
-  padding: 50px 0;
-}
-.contact-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-.contact-section p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-.social-icon {
-  width: 50px; /* Size of your icons */
-  margin-bottom: 10px;
-}
-/* Hover effect for icons */
-.social-icon:hover {
-  opacity: 0.7;
-}
-/* Style for links in the Contact section */
-.contact-section a {
-  color: #fff;
-  text-decoration: none; /* Removes underline from links */
-  display: inline-block; /* Allows for margin on the bottom */
-  margin-bottom: 10px;
-}
-.contact-section a:hover {
-  color: #ddd; /* Color when hovering over the link */
-}
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: #0A0F1A; text-align: center; padding: 2rem;
+      font-size: 0.82rem; color: #475569;
+    }
 
-/* CSS for Sticky Navbar */
-.navbar {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds a shadow for depth */
-}
-
-/* Ensure padding is added to body to avoid content being hidden behind the navbar */
-body { 
-  padding-top: 56px; /* Adjust this value based on the height of your navbar */
-}
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Style for navigation bar links */
-.navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #f8f9fa; /* Slightly lighter white when hovering over links */
-}
-
-/* Media query for responsive navbar collapsing */
-@media (max-width: 992px) {
-  .navbar-collapse {
-    background-color: #343a40; /* Same as navbar color for seamless look */
-  }
-}
-
-
-</style>
-
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 640px) {
+      nav .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      .timeline { padding-left: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-<section id='about' class="about-section">
-  <div class="container">
-    <h2>About</h2>
-    <img src="images/about/mine.jpg" alt="About Me">
-    <p> 
-Hello! I'm a seasoned engineer with a passion for problem-solving. With over 2 years of experience in the field, I've honed my skills in a variety of areas, but my true passion lies in Computer Vision.
-
-I've had the opportunity to work on Computer Vision for industrial use cases, where I've been able to apply my knowledge and skills to real-world problems. This has not only been incredibly rewarding, but it's also given me a wealth of practical experience.
-
-I love the challenge that comes with figuring out a complex problem and the satisfaction that comes with finding a solution. I'm always looking for new challenges and opportunities to learn and grow in my field.</p>
- 
-  </div>
-
-  <!-- Education Section -->
-  <div class="education-section">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Bachelor's Degree:</strong> Electrical and Electronics Engineering- [National Institute of Technology, Warangal], [2017]</li>
-      <li><strong>Master's Degree:</strong> Systems Control and Automation- [Indian Institute of Technology, Guwahati], [2022]</li>
-    </ul>
-  </div>
-
-  <!-- Work Experience 
-  <div class="container">
-    <h2>Work Experience</h2>
-    <div class="experience">
-      <h3>Technologist - Tata Steel</h3>
-      <p class="date">Aug-2022 - Present</p>
-      <ul>
-        <li>Working as a Computer Vision Engineer to solve the industrial use cases.</li>
-        
-      </ul>
-    </div>   
-</div>   -->
-  
-</section>
-
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section bg-light">
-  <div class="container">
-    <h2 class="text-center">Projects</h2>
-    <ul>
-      <li>
-        <strong>Machine Guarding and Live Safety Monitoring System:</strong>
-        Real-time guarding of an industrial machine and safety monitoring around its safe boundary.
-        
-      </li>
-      <li>
-        <strong>Staircase Obstruction Detection:</strong>
-        Detection of stationary objects on a staircase for a specific timeframe.
-        
-      </li>
-      <li>
-        <strong>PPE Detection :</strong>
-        Detection of PPEs for safety surveillance in CCTV cameras.
-        
-        
-      </li>
-
-      <li>
-        <strong>Pneumothorax Segmentation :</strong>
-        Classification and Segmentation of Pneumothorax.
-        
-        
-      </li>
-
-      <li>
-        <strong>Skin Melanoma Classification :</strong>
-        Classification of Skin Melanoma Stages.
-        
-        
-      </li>
-    </ul>
-  </div>
-</section>
-
-
-<!-- Skills Section -->
-<section id="skills" class="skills-section bg-white">
-  <div class="container">
-    <h2 class="text-center">Skills</h2>
-    <ul>
-      <li>
-        <strong>Programming Languages:</strong> Proficient in Python and C++ for application development and data-driven tasks.
-      </li>
-      <li>
-        <strong>Frameworks and Libraries:</strong> Hands-on experience with PyTorch, TensorFlow, and other deep learning tools.
-      </li>
-
-      <li>
-        <strong>Comprehensive knowledge of Computer Vision, including:</strong>
-        <ul>
-          <li>Image Classification</li>
-          <li>Object Detection</li>
-          <li>Segmentation</li>
-          <li>Image Generation</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Edge Computing:</strong> Expertise in deploying AI solutions on NVIDIA Jetson devices for real-time applications.
-      </li>
-      <li>
-        <strong>Data Science:</strong> Skilled in data analysis, modeling, visualization, and drawing actionable insights.
-      </li>
-      <li>
-        <strong>Natural Language Processing (NLP):</strong> Proficient in developing models and applications for text analysis and understanding.
-      </li>
-    </ul>
-  </div>
-</section>
-
-
-<!-- Contact Me Section -->
-<section id="contact" class="contact-section text-center text-white bg-dark">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <div class="row">
-      <div class="col-lg-6">
-        <p><i class="fas fa-envelope"></i> sbyousuf93@gmail.com</p>
-      </div>
-      <div class="col-lg-6">
-        <p><i class="fas fa-phone"></i> 9149436145</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://linkedin.com/in/bsuhaib-0a6893a6" target="_blank">
-          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
-          LinkedIn
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://twitter.com/sbyousouf" target="_blank">
-          <img src="icons/twitter.png" alt="Twitter" class="social-icon">
-          Twitter
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://github.com/bsuhaib" target="_blank">
-          <img src="icons/github.png" alt="GitHub" class="social-icon">
-          GitHub
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://medium.com/@yourusername" target="_blank">
-          <img src="icons/medium.png" alt="Medium" class="social-icon">
-          Medium
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://kaggle.com/bsuhaib" target="_blank">
-          <img src="icons/kaggle.png" alt="YouTube" class="social-icon">
-          Kaggle
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Sticky Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#home">Portfolio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#skills">Skills</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">Suhaib Bin Yousouf</a>
+  <ul class="nav-links">
+    <li><a href="#patents">Patents</a></li>
+    <li><a href="#regulatory">Regulatory</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Medical AI · Computer Vision · Dubai, UAE
+    </div>
+    <h1>Suhaib <span>Bin Yousouf</span></h1>
+    <p class="subtitle">Lead Data Scientist / Principal Architect · Medical imaging AI · Foundation models · Avyuct Inc.</p>
+    <p>
+      I architect and ship <strong style="color:#fff">clinical-grade neurovascular AI</strong> and lead work on a <strong style="color:#fff">Universal Vascular World Model (VWM)</strong> on private NVIDIA Blackwell-class GPU infrastructure (Avyuct, Dubai Healthcare City).
+      <strong style="color:#fff">Named inventor on four US provisional patent applications</strong> in neurovascular imaging AI, and on <strong style="color:#fff">one Indian patent application</strong> filed through Tata Steel (industrial safety AI).
+      Contributing to Avyuct's <strong style="color:#fff">FDA Breakthrough Device</strong> pathway for DistalPoint DMVO (<strong style="color:#fff">Q260802</strong>) — <strong style="color:#fff">86% sensitivity</strong> on an independent multi-site validation set; regulatory status is pending FDA.
+      M.Tech, IIT Guwahati; B.Tech, NIT Warangal.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">4</span>
+        <span class="stat-label">US Provisional Filings</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">86<span>%</span></span>
+        <span class="stat-label">Stroke AI Sensitivity</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">FDA Submissions</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">IIT</span>
+        <span class="stat-label">Guwahati M.Tech</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:sbyousuf93@gmail.com" class="btn btn-primary">Get in Touch</a>
+      <a href="#regulatory" class="btn btn-outline">Regulatory</a>
+      <a href="#patents" class="btn btn-outline">View Patents</a>
+    </div>
+  </div>
+</section>
 
-<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- PATENTS -->
+<section id="patents">
+  <div class="container">
+    <div class="section-label">Intellectual Property</div>
+    <h2 class="section-title" style="color:#fff">Patent Inventor</h2>
+    <p class="section-desc">
+      Patent rights are <strong style="color:#E2E8F0;">claims in filed applications</strong>, separate from product features (e.g., detection and localization in deployed software). Named inventor on <strong style="color:#E2E8F0;">four US provisional applications</strong> assigned to Avyuct Inc. covering neurovascular imaging methods, and on <strong style="color:#E2E8F0;">one Indian application</strong> filed through Tata Steel Ltd. for industrial machine-guarding AI.
+    </p>
+    <div class="patents-grid">
+      <div class="patent-card">
+        <div class="patent-num">US PROVISIONAL · 01</div>
+        <div class="patent-title">Precision Mapping of Large Vessel Occlusion Sites in Ischemic Stroke Patients</div>
+        <div class="patent-org">Avyuct Inc. · US Provisional Filed</div>
+      </div>
+      <div class="patent-card">
+        <div class="patent-num">US PROVISIONAL · 02</div>
+        <div class="patent-title">Enhanced 3D MIP Imaging Method for Ischemic Stroke Detection in CT Angiograms</div>
+        <div class="patent-org">Avyuct Inc. · US Provisional Filed</div>
+      </div>
+      <div class="patent-card">
+        <div class="patent-num">US PROVISIONAL · 03</div>
+        <div class="patent-title">Application of NNU-Net in Detecting and Segmenting Vessel Occlusions in Brain CT Angiograms</div>
+        <div class="patent-org">Avyuct Inc. · US Provisional Filed</div>
+      </div>
+      <div class="patent-card">
+        <div class="patent-num">US PROVISIONAL · 04</div>
+        <div class="patent-title">Automated Skull-Stripping of Computed Tomography Angiogram Brain Volumes That Preserves Internal Carotid Arteries</div>
+        <div class="patent-org">Avyuct Inc. · US Provisional Filed</div>
+      </div>
+      <div class="patent-card">
+        <div class="patent-num">INDIAN PATENT APPLICATION</div>
+        <div class="patent-title">Machine Guarding System Using AI-Based Virtual Barricading for Industrial Zones</div>
+        <div class="patent-org">Tata Steel Ltd. · Filed via employer · App No: 202431015004</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY PIPELINE -->
+<section id="regulatory" style="background:#0F172A; padding:5rem 2rem;">
+  <div class="container">
+    <div class="section-label" style="color:#60A5FA;">Regulatory</div>
+    <h2 class="section-title" style="color:#fff;">U.S. FDA Regulatory Programs</h2>
+    <p class="section-desc">
+      End-to-end contributions across Avyuct's U.S. regulatory strategy: submissions and designations spanning LVO triage, distal medium-vessel occlusion (DMVO), small-vessel occlusion (SVO) research products, hemorrhagic stroke, and CT perfusion. Status reflects filings and programs as of the portfolio date; official decisions rest with FDA.
+    </p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;">
+        <thead>
+          <tr style="background:rgba(37,99,235,0.3);">
+            <th style="text-align:left;padding:0.75rem 1rem;color:#93C5FD;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.1);">PRODUCT / INDICATION</th>
+            <th style="text-align:left;padding:0.75rem 1rem;color:#93C5FD;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.1);">SUBMISSION TYPE</th>
+            <th style="text-align:left;padding:0.75rem 1rem;color:#93C5FD;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.1);">STATUS</th>
+            <th style="text-align:left;padding:0.75rem 1rem;color:#93C5FD;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.1);">ROLE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:0.85rem 1rem;color:#fff;font-size:0.875rem;font-weight:600;">LVO Detection — Ischemic Stroke (CTA)</td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">FDA CADt Application</td>
+            <td style="padding:0.85rem 1rem;"><span style="background:rgba(52,211,153,0.15);color:#34D399;padding:0.2rem 0.65rem;border-radius:100px;font-size:0.78rem;font-weight:600;">Filed</span></td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Lead AI Scientist</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+            <td style="padding:0.85rem 1rem;color:#fff;font-size:0.875rem;font-weight:600;">DMVO Detection & Localization — DistalPoint</td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">FDA Breakthrough Device (Q260802)</td>
+            <td style="padding:0.85rem 1rem;"><span style="background:rgba(59,130,246,0.2);color:#60A5FA;padding:0.2rem 0.65rem;border-radius:100px;font-size:0.78rem;font-weight:600;">Active — Under Review</span></td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Lead AI Scientist</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:0.85rem 1rem;color:#fff;font-size:0.875rem;font-weight:600;">Small Vessel Occlusion Detection & Localization</td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">FDA Breakthrough Device</td>
+            <td style="padding:0.85rem 1rem;"><span style="background:rgba(52,211,153,0.15);color:#34D399;padding:0.2rem 0.65rem;border-radius:100px;font-size:0.78rem;font-weight:600;">Filing Submitted</span></td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Lead AI Scientist</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+            <td style="padding:0.85rem 1rem;color:#fff;font-size:0.875rem;font-weight:600;">Hemorrhagic Stroke AI</td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Pre-Submission / 510(k)</td>
+            <td style="padding:0.85rem 1rem;"><span style="background:rgba(251,191,36,0.15);color:#FCD34D;padding:0.2rem 0.65rem;border-radius:100px;font-size:0.78rem;font-weight:600;">In Development</span></td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Lead AI Scientist</td>
+          </tr>
+          <tr>
+            <td style="padding:0.85rem 1rem;color:#fff;font-size:0.875rem;font-weight:600;">CT Perfusion Analysis</td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Pre-Submission</td>
+            <td style="padding:0.85rem 1rem;"><span style="background:rgba(251,191,36,0.15);color:#FCD34D;padding:0.2rem 0.65rem;border-radius:100px;font-size:0.78rem;font-weight:600;">Filing Imminent</span></td>
+            <td style="padding:0.85rem 1rem;color:#94A3B8;font-size:0.875rem;">Lead AI Scientist</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="divider"></div>
+
+    <div class="timeline">
+      <!-- Job 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-title">Lead Data Scientist / Principal Architect</div>
+            <div class="timeline-company">Avyuct Inc. — DHCC Dubai (UAE Branch)</div>
+          </div>
+          <span class="timeline-date">2025 – Present</span>
+        </div>
+        <p class="timeline-desc">
+          Leading Avyuct's UAE R&amp;D lab in Dubai Healthcare City — building the Universal Vascular World Model (VWM) on private NVIDIA Blackwell GPU clusters, with emphasis on reproducible training, validation, and paths to regulated deployment.
+        </p>
+        <ul class="timeline-bullets">
+          <li>Architecting the <strong>Universal Vascular World Model (VWM)</strong> — organ-agnostic AI foundation trained via self-supervised I-JEPA on unlabelled CTA/MRI volumes, enabling generalisation across scanners and patient populations without labelled data.</li>
+          <li>Building distributed training pipelines with <strong>NVIDIA Blackwell / H100 infrastructure, FP4/FP8 precision optimisation</strong>, and high-fidelity synthetic data generation for robust pre-training.</li>
+          <li>Directing the full pipeline from pre-training through clinical validation, targeting sub-50-case fine-tuning for new tasks (vs. 5,000 cases today).</li>
+          <li>Extending the VWM from brain to coronary and renal vascular beds — one foundation model replacing dozens of single-task tools.</li>
+          <li>Coordinating with clinical and regulatory stakeholders on sandbox-style evaluation and evidence packages suitable for health authorities.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Universal VWM</span>
+          <span class="tag">NVIDIA Blackwell</span>
+          <span class="tag">I-JEPA</span>
+          <span class="tag">Distributed Training</span>
+          <span class="tag">Synthetic Data</span>
+          <span class="tag">DHCC Dubai</span>
+          <span class="tag">Clinical Validation</span>
+        </div>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-title">Senior Data Scientist (Contract)</div>
+            <div class="timeline-company">Avyuct Inc. — Remote</div>
+          </div>
+          <span class="timeline-date">Dec 2024 – 2025</span>
+        </div>
+        <p class="timeline-desc">
+          Developed core AI models across Avyuct's neurovascular portfolio — LVO, DMVO, and SVO programs — driving multiple U.S. FDA regulatory submissions and <strong>four US provisional patent applications</strong> on which I am a named inventor.
+        </p>
+        <ul class="timeline-bullets">
+          <li>Built <strong>LVO detection model</strong> on CT Angiography — core to Avyuct's <strong>FDA CADt application</strong> for acute ischemic stroke triage.</li>
+          <li>Developed <strong>Avyuct DistalPoint (DMVO)</strong>: 86% sensitivity (95% CI: 73.3–94.2%), 84% specificity on 75-case multi-site dataset — actively under <strong>FDA Breakthrough Device review (Q260802)</strong>. Abstract submitted to World Stroke Congress 2026.</li>
+          <li>Built <strong>Small Vessel Occlusion (SVO)</strong> detection and localization model — <strong>FDA Breakthrough Device filing submitted</strong> (product pathway; patent claims are listed separately).</li>
+          <li>Developing <strong>Hemorrhagic Stroke</strong> AI and <strong>CT Perfusion</strong> analysis models — both targeting imminent regulatory filings.</li>
+          <li>Designed pneumothorax quantification pipeline: <strong>15% accuracy improvement</strong>, analysis time 10 min → 30 seconds per scan.</li>
+          <li>Integrated LLM-based radiology report generation via MCP server; contributed to Avyuct's US provisional filings listed in the Patents section.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">LVO · DMVO · SVO</span>
+          <span class="tag">FDA CADt</span>
+          <span class="tag">Breakthrough Device</span>
+          <span class="tag">nnU-Net</span>
+          <span class="tag">CT Perfusion</span>
+          <span class="tag">Hemorrhagic Stroke</span>
+          <span class="tag">4 US Provisional</span>
+        </div>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-title">Computer Vision Engineer</div>
+            <div class="timeline-company">Tata Steel, Jamshedpur</div>
+          </div>
+          <span class="timeline-date">Aug 2022 – Dec 2024</span>
+        </div>
+        <p class="timeline-desc">
+          Led end-to-end computer vision solutions across a 200-camera industrial surveillance infrastructure — from conception through production deployment on edge hardware.
+        </p>
+        <ul class="timeline-bullets">
+          <li>Invented and deployed a Machine Guarding system covered by an <strong>Indian patent application</strong> (202431015004), filed through Tata Steel Ltd., using YOLO-based virtual barricading — first AI safety system of its kind in the deployed steelworks environment.</li>
+          <li>Built Caster Breakout Detection on NVIDIA Jetson Xavier with GCP integration for real-time monitoring and automated alarms, reducing costly downtime.</li>
+          <li>Developed person counting (YOLOv8 + tracking), ladle hook engagement detection, slip/trip detection, and stationary object detection — all in production.</li>
+          <li>All systems deployed on edge hardware (Jetson Xavier, Raspberry Pi) with C++ pipelines, TensorRT, ONNX quantisation for real-time inference.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">YOLO</span>
+          <span class="tag">NVIDIA Jetson</span>
+          <span class="tag">TensorRT</span>
+          <span class="tag">ONNX</span>
+          <span class="tag">OpenVINO</span>
+          <span class="tag">C++</span>
+          <span class="tag">GCP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Key Projects</h2>
+    <div class="divider"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Medical AI</span>
+          <h3>Avyuct DistalPoint — DMVO Detection</h3>
+          <p>Deep learning system for automated detection and localization of distal medium vessel occlusions (DMVO) in CT Angiography. Validated on multi-site 75-case dataset (50 DMVO-positive, 25 controls). Submitted to World Stroke Congress 2026.</p>
+          <div class="project-metric">86% Sensitivity · 84% Specificity · Multi-site Validated</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Medical AI · FDA CADt Filed</span>
+          <h3>LVO Detection in CT Angiography</h3>
+          <p>High-sensitivity AI model for Large Vessel Occlusion (LVO) detection supporting acute ischemic stroke triage. Core technology behind Avyuct's FDA CADt application. Contributed to four US provisional patent applications.</p>
+          <div class="project-metric">FDA CADt application filed · 4 US provisional applications</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Medical AI · FDA Breakthrough Filed</span>
+          <h3>Small Vessel Occlusion (SVO) Detection</h3>
+          <p>AI model for detection and precise localization of small vessel occlusions in CT Angiography — addressing a critical gap in acute stroke triage where no cleared solution currently exists. FDA Breakthrough Device filing submitted.</p>
+          <div class="project-metric">FDA Breakthrough Device filing submitted · multi-site validation ongoing</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Medical AI · In Development</span>
+          <h3>Hemorrhagic Stroke AI</h3>
+          <p>Deep learning pipeline for hemorrhagic stroke detection and characterization. Extending Avyuct's neurovascular AI portfolio beyond ischemic stroke into hemorrhage — targeting pre-submission regulatory filing.</p>
+          <div class="project-metric">Pre-Submission · Regulatory Filing In Progress</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Medical AI · Filing Imminent</span>
+          <h3>CT Perfusion Analysis</h3>
+          <p>AI-powered CT Perfusion analysis for quantifying cerebral blood flow, volume, and mean transit time — critical for determining tissue viability in acute stroke. Regulatory filing imminent.</p>
+          <div class="project-metric">Pre-Submission · Filing Imminent</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Medical AI · In Development</span>
+          <h3>Pneumothorax Quantification</h3>
+          <p>Automated deep learning pipeline for pneumothorax quantification on chest X-rays using segmentation architectures. Reduced analysis time from 10 minutes to 30 seconds per scan.</p>
+          <div class="project-metric">15% Accuracy Improvement · 20× Speed-up</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Foundation Models</span>
+          <h3>Universal Vascular World Model (VWM)</h3>
+          <p>Self-supervised foundation model trained on NVIDIA Blackwell clusters via I-JEPA — organ-agnostic AI that learns vascular anatomy from unlabelled scans. Brain today, coronary and whole-body tomorrow. Core of Avyuct's DHCC Dubai R&amp;D lab.</p>
+          <div class="project-metric">NVIDIA Blackwell · Self-supervised pre-training · Low-shot fine-tuning target</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Industrial AI · Patented</span>
+          <h3>AI Machine Guarding System</h3>
+          <p>YOLO-based virtual barricading system that detects safety violations around industrial machinery by integrating machine running status from a database. Indian patent application filed through Tata Steel Ltd. (Application No: 202431015004).</p>
+          <div class="project-metric">Patent Filed · 200-Camera Infrastructure · Production</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"></div>
+        <div class="project-body">
+          <span class="project-badge">Industrial AI</span>
+          <h3>Caster Breakout Detection</h3>
+          <p>Edge computing system on NVIDIA Jetson Xavier monitoring continuous caster molds through computer vision. Integrated with Google Cloud for real-time alarm triggering via Raspberry Pi, preventing costly steel casting failures.</p>
+          <div class="project-metric">Jetson Xavier · GCP · Raspberry Pi · Real-time</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🧠</div>
+        <h3>AI / Deep Learning</h3>
+        <div class="skill-list">PyTorch · TensorFlow · Keras<br>Foundation Models · I-JEPA<br>Diffusion Models · GANs<br>nnU-Net · MONAI</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🏥</div>
+        <h3>Medical Imaging</h3>
+        <div class="skill-list">CT Angiography · MRI · X-Ray<br>Stroke Detection · Vessel Segmentation<br>Skull-Stripping · 3D MIP<br>DICOM · Medical AI Pipelines</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">👁️</div>
+        <h3>Computer Vision</h3>
+        <div class="skill-list">Object Detection (YOLO, Faster R-CNN)<br>Segmentation (U-Net, nnU-Net)<br>Object Tracking<br>OpenCV · Image Generation</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>Languages</h3>
+        <div class="skill-list">Python · C++<br>ONNX · TensorRT optimization<br>OpenVINO · CUDA<br>FP4/FP8 Precision Optimisation</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Infrastructure</h3>
+        <div class="skill-list">NVIDIA Blackwell / H100 / A100<br>Distributed Training · Synthetic Data<br>Docker · Kafka · Flask · GStreamer<br>AWS · GCP · NVIDIA Jetson · MCP Server</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💬</div>
+        <h3>NLP & LLMs</h3>
+        <div class="skill-list">Transformers · LLMs<br>Automated Report Generation<br>Language Translation<br>MCP Integration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">Recognition</div>
+    <h2 class="section-title">Achievements</h2>
+    <div class="divider"></div>
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-icon">🏅</div>
+        <div>
+          <h4>4 US Provisional Patent Applications</h4>
+          <p>Named inventor on four US provisional filings in neurovascular imaging AI (Avyuct), plus one Indian application in industrial safety AI (Tata Steel).</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏥</div>
+        <div>
+          <h4>FDA Breakthrough Device — Q260802</h4>
+          <p>Lead technical contributor on Avyuct DistalPoint (DMVO): models and validation evidence submitted in FDA Breakthrough-track correspondence (Q260802); designation and clearance remain FDA decisions.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🎓</div>
+        <div>
+          <h4>MICCAI 2021 — Student Grant</h4>
+          <p>Awarded Student Grant to attend MICCAI — the world's premier medical imaging and computer-assisted intervention conference.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">📊</div>
+        <div>
+          <h4>GATE 2020 — AIR 498</h4>
+          <p>Top 0.5% All India Rank in GATE 2020 — one of India's most competitive national engineering examinations.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🎓</div>
+        <div>
+          <h4>JEE Mains — AIR 4120 · State Rank 11</h4>
+          <p>Qualified for NIT Warangal from JEE Mains 2013 with State Rank 11 in Jammu &amp; Kashmir.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <h4>Kaggle BirdCLEF+ 2025</h4>
+          <p>Rank 270 / 2025 participants in competitive machine learning challenge.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <h4>Kaggle Image Matching 2024</h4>
+          <p>Rank 329 / 937 in Kaggle Image Matching Challenge 2024.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🌍</div>
+        <div>
+          <h4>WSC 2026 Abstract</h4>
+          <p>Research on Avyuct DistalPoint submitted to World Stroke Congress 2026 for presentation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+    <div class="divider"></div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2020 – 2022</div>
+        <h3>M.Tech — Systems Control &amp; Automation</h3>
+        <div class="institute">Indian Institute of Technology (IIT) Guwahati</div>
+        <div class="cgpa">CGPA: <strong>8.47 / 10</strong></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2013 – 2017</div>
+        <h3>B.Tech — Electrical &amp; Electronics Engineering</h3>
+        <div class="institute">National Institute of Technology (NIT) Warangal</div>
+        <div class="cgpa">CGPA: <strong>7.60 / 10</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <p>Open to collaborations in medical AI, foundation models, computer vision, and clinical validation. Based in Dubai, UAE (Avyuct Inc., DHCC).</p>
+    <div class="contact-links">
+      <a href="mailto:sbyousuf93@gmail.com" class="contact-link contact-link-email">
+        📧 sbyousuf93@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/bsuhaib-0a6893a6" target="_blank" rel="noopener" class="contact-link contact-link-linkedin">
+        🔗 LinkedIn Profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Suhaib Bin Yousouf · Lead Data Scientist / Principal Architect · Medical AI &amp; computer vision</p>
+</footer>
+
 </body>
 </html>
