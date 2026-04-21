@@ -468,17 +468,56 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────────── */
-    @media (max-width: 768px) {
-      .hero-content { flex-direction: column; text-align: center; }
+    @media (max-width: 900px) {
+      nav { padding: 0 1rem; }
+      .nav-logo { font-size: 0.95rem; }
+      .nav-links { gap: 1rem; overflow-x: auto; white-space: nowrap; }
+      .hero { min-height: auto; padding: 92px 1rem 2.5rem; }
+      .hero-content { flex-direction: column; text-align: center; gap: 1.25rem; }
       .hero-text { max-width: 100%; order: 2; }
       .hero-photo { order: 1; }
-      .hero p { margin-left: auto; margin-right: auto; }
-      .hero-cta { justify-content: center; }
+      .hero-badge { margin: 0 auto 1rem; }
+      .hero p { margin-left: auto; margin-right: auto; font-size: 0.96rem; line-height: 1.7; }
+      .hero-stats {
+        width: 100%;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 1rem;
+      }
+      .stat { align-items: center; }
+      .hero-cta { justify-content: center; width: 100%; }
+      .btn { padding: 0.7rem 1.1rem; }
+      section { padding: 3.4rem 1rem; }
+      .divider { margin-bottom: 2rem; }
+      .section-desc { margin-bottom: 2rem; }
+      .timeline { padding-left: 1rem; }
+      .timeline-dot { left: -1.45rem; }
+      .timeline-date { font-size: 0.75rem; }
+      .timeline-bullets li { font-size: 0.84rem; }
+      .projects-grid, .skills-grid, .ach-grid, .patents-grid, .edu-grid {
+        grid-template-columns: 1fr;
+      }
     }
     @media (max-width: 640px) {
+      nav { height: 56px; }
       nav .nav-links { display: none; }
-      .hero-stats { gap: 1.5rem; }
-      .timeline { padding-left: 1.5rem; }
+      .hero { padding-top: 80px; }
+      .hero h1 { font-size: clamp(2rem, 9vw, 2.5rem); letter-spacing: -1px; }
+      .hero .subtitle { font-size: 0.95rem; margin-bottom: 1rem; }
+      .hero-profile-img { width: 148px; height: 148px; }
+      .hero-stats { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .stat-num { font-size: 1.55rem; }
+      .stat-label { font-size: 0.68rem; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; width: 100%; }
+      .section-title { font-size: 1.45rem; }
+      .section-desc { font-size: 0.92rem; }
+      .timeline-header { flex-direction: column; align-items: flex-start; }
+      .timeline-date { margin-top: 0.15rem; }
+      table { font-size: 0.8rem; }
+      .contact-links { flex-direction: column; }
+      .contact-link { text-align: center; }
     }
   </style>
 </head>
